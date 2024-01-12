@@ -1,27 +1,28 @@
 ////////////////////////useEffect example 2/////////////////////////////////////useEffect example 1 ////////////////
-////////////////////re size ing the window width //////////////
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 export default function App() {
-     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-     
-     const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-     }
+  const [resourceType, setResourceType] = useState("Posts");
 
+  console.log("render");
 
-    useEffect(() => {
-      window.addEventListener('resize', handleResize)
+  useEffect(() => {
+   
+    console.log('render the data');
+    return() => {
+      console.log("render the resource change  data");
+    }
+  }, [resourceType]);
 
-      return () => {
-        window.removeEventListener('resize', handleResize)
-      }
-    }, [])
-    
-    return (
-      <>
-        <div>{windowWidth}</div>
-        
-      </>
-    );
-        };
+  return (
+    <>
+      <div>
+        <button onClick={() => setResourceType("posts")}>Posts</button>
+        <button onClick={() => setResourceType("users")}>Users</button>
+        <button onClick={() => setResourceType("comments")}>Comments</button>
+      </div>
+      <h1>{resourceType}</h1>
+      
+    </>
+  );
+}
