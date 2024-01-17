@@ -1,6 +1,6 @@
 import React from "react";
 import Classprops from "./Classprops";
-
+import functionprops from "./functionprops"
 class App extends React.Component {
   render() {
     return (
@@ -16,8 +16,11 @@ class App extends React.Component {
           <Classprops name="learner 3" place="placexerrree">
             <p>child component</p>
           </Classprops>
+          <functionprops name="learner4" place="placeddd"></functionprops>
         </div>
       </>
     );
   }
 }
+
+export default App;
